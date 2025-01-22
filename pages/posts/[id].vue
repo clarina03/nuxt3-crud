@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h1>Fakta Angka</h1>
-    <p>{{ fact.number }}: {{ fact.text }}</p>
-    <button @click="deleteFact">Hapus Fakta</button>
-    <button @click="editFact">Edit Fakta</button>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.body }}</p>
+    <button @click="goBack">Kembali</button>
   </div>
 </template>
 
@@ -11,34 +10,22 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-const fact = ref({});
+const post = ref({});
 const route = useRoute();
 const router = useRouter();
 
 onMounted(async () => {
-  await fetchFact();
+  await fetchPost();
 });
 
-const fetchFact = async () => {
-  const number = route.params.id;
-  const res = await fetch(`http://numbersapi.com/${number}`);
-  const text = await res.text();
-  fact.value = { number, text };
+const fetchPost = async () => {
+  const id = route.params.id;
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const data = await response.json();
+  post.value = data;
 };
 
-const editFact = async () => {
-  const newNumber = prompt('Masukkan angka baru untuk fakta:', fact.value.number);
-  if (newNumber) {
-    const res = await fetch(`http://numbersapi.com/${newNumber}`);
-    const text = await res.text();
-    fact.value = { number: newNumber, text };
-  }
-};
-
-const deleteFact = () => {
-  const confirmDelete = confirm('Apakah Anda yakin ingin menghapus fakta ini?');
-  if (confirmDelete) {
-    router.push('/'); // Redirect ke halaman utama setelah dihapus
-  }
+const goBack = () => {
+  router.push('/posts');
 };
 </script>
