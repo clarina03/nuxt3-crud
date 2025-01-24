@@ -11,8 +11,10 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f7fc;
   color: #002b64;
-  padding: 20px;
-  line-height: 1.6; /* Menambahkan line-height untuk keterbacaan yang lebih baik */
+  padding: 30px 20px; 
+  line-height: 1.6;
+  max-width: 100%; 
+  overflow-x: hidden;
 }
 
 /* Container */
@@ -125,15 +127,15 @@ button:active {
 }
 
 .add-btn:hover {
-  background-color: #6ebff3; /* Warna lebih cerah saat hover */
+  background-color: #0d3a56; /* Warna lebih cerah saat hover */
 }
 
 .add-btn:active {
-  background-color: #2e86c1; /* Warna lebih gelap saat ditekan */
+  background-color: #174767; /* Warna lebih gelap saat ditekan */
 }
 
 .add-btn:hover {
-  background-color: #2980b9;
+  background-color: #124260;
 }
 
 .delete-btn {
@@ -156,4 +158,45 @@ button:active {
 
 .view-btn:hover {
   background-color: #27ae60;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
+}
+
+button:hover {
+  background-color: #5dade2; /* Warna lebih terang saat hover */
+  transform: scale(1.05); /* Efek zoom */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+}
+
+button:active {
+  transform: scale(0.95); /* Efek sedikit mengecil saat klik */
+  background-color: #2980b9; /* Warna lebih gelap saat ditekan */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Bayangan lebih kecil */
+}
+
+.go-back-btn {
+  background-color: #3498db; /* Warna biru sesuai tombol lainnya */
+  color: white;
+  margin-top: 20px;
+  padding: 12px 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.go-back-btn:hover {
+  background-color: #0d3a56; /* Warna lebih cerah saat hover */
+}
+
+.go-back-btn:active {
+  background-color: #174767; /* Warna lebih gelap saat ditekan */
 }
