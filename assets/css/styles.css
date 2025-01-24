@@ -10,7 +10,7 @@ body {
   background-color: #f4f7fc;
   color: #002b64;
   padding: 20px;
-  line-height: 1.6; 
+  line-height: 1.6; /* Menambahkan line-height untuk keterbacaan yang lebih baik */
 }
 
 /* Container */
@@ -32,7 +32,7 @@ header {
 
 header h1 {
   font-size: 2.5rem;
-  font-weight: 600; 
+  font-weight: 600; /* Menambahkan bobot font agar lebih tebal */
   margin-bottom: 10px;
 }
 
@@ -40,7 +40,7 @@ header h1 {
 ul {
   list-style: none;
   margin-top: 30px;
-  padding-left: 0; 
+  padding-left: 0; /* Menambahkan padding agar lebih konsisten */
 }
 
 li {
@@ -64,7 +64,7 @@ img {
   max-width: 200px;
   border-radius: 8px;
   margin-right: 20px;
-  object-fit: cover; 
+  object-fit: cover; /* Memastikan gambar terjaga proporsinya */
 }
 
 p {
@@ -72,7 +72,7 @@ p {
   font-weight: bold;
   color: #34495e;
   flex-grow: 1;
-  margin-right: 15px; 
+  margin-right: 15px; /* Menambahkan margin kanan untuk pemisahan yang lebih baik */
 }
 
 .apod-actions {
@@ -86,24 +86,24 @@ button {
   border-radius: 6px;
   cursor: pointer;
   border: none;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
 }
 
 button:hover {
-  background-color: #5dade2; 
-  transform: scale(1.05); 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  background-color: #5dade2; /* Warna lebih terang saat hover */
+  transform: scale(1.05); /* Efek zoom */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
 }
 
 button:active {
-  transform: scale(0.95); 
-  background-color: #2980b9; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+  transform: scale(0.95); /* Efek sedikit mengecil saat klik */
+  background-color: #2980b9; /* Warna lebih gelap saat ditekan */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Bayangan lebih kecil */
 }
 
 /* Button Styles */
 .add-btn {
-  background-color: #3498db; 
+  background-color: #3498db; /* Warna default */
   color: white;
   margin-top: 20px;
   padding: 12px 24px;
@@ -115,11 +115,11 @@ button:active {
 }
 
 .add-btn:hover {
-  background-color: #6ebff3; 
+  background-color: #6ebff3; /* Warna lebih cerah saat hover */
 }
 
 .add-btn:active {
-  background-color: #2e86c1; 
+  background-color: #2e86c1; /* Warna lebih gelap saat ditekan */
 }
 
 .add-btn:hover {
