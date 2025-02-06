@@ -12,25 +12,26 @@
 </template>
 
 <script setup>
-import { useNasaStore } from '~/stores/nasa'
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useNasaStore } from '~/stores/nasa' // Pastikan path benar
 
-const route = useRoute();
-const router = useRouter();
-const nasaStore = useNasaStore()
-const apod = ref(null);
+const route = useRoute()
+const router = useRouter()
+const nasaStore = useNasaStore() // Mengakses store Pinia
 
-// Ambil data APOD berdasarkan tanggal dari route params
-watchEffect(() => {
-  if (route.params.date) {
-    nasaStore.fetchApod(route.params.date)
-  }
+const { apod } = storeToRefs(nasaStore) // Mengambil data apod dari store
+
+onMounted(() => {
+  const date = route.params.date
+  nasaStore.fetchApod(date) // Memanggil action untuk fetch data APOD
 })
 
 const goBack = () => {
-  router.push('/'); // Kembali ke halaman utama (index.vue)
-};
+  router.push('/') // Kembali ke halaman utama
+}
 
-onMounted(fetchApodDetail);
+const clearApod = () => {
+  nasaStore.clearApod() // Menghapus data APOD dari store
+}
 </script>
