@@ -12,29 +12,21 @@
 </template>
 
 <script setup>
+import { useNasaStore } from '~/stores/nasa'
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const router = useRouter();
+const nasaStore = useNasaStore()
 const apod = ref(null);
 
-// Mengambil data APOD berdasarkan tanggal dari API NASA
-const fetchApodDetail = async () => {
-  const date = route.params.date; // Mendapatkan tanggal dari URL
-  try {
-    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`);
-    const data = await response.json();
-    if (data && data.url) {
-      apod.value = data;
-    } else {
-      apod.value = null;
-    }
-  } catch (error) {
-    console.error('Error fetching APOD detail:', error);
-    apod.value = null;
+// Ambil data APOD berdasarkan tanggal dari route params
+watchEffect(() => {
+  if (route.params.date) {
+    nasaStore.fetchApod(route.params.date)
   }
-};
+})
 
 const goBack = () => {
   router.push('/'); // Kembali ke halaman utama (index.vue)
