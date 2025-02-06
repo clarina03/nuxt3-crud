@@ -55,8 +55,11 @@ const createApod = async () => {
 
 // Menghapus gambar APOD favorit
 const deleteApod = (index) => {
-  apodList.value.splice(index, 1);
-  localStorage.setItem('apodList', JSON.stringify(apodList.value));
+  const isConfirmed = window.confirm("Apakah Anda yakin ingin menghapus?");
+  if (isConfirmed) {
+    apodList.value.splice(index, 1);
+    localStorage.setItem('apodList', JSON.stringify(apodList.value));
+  }
 };
 
 // Menampilkan detail gambar berdasarkan tanggal
